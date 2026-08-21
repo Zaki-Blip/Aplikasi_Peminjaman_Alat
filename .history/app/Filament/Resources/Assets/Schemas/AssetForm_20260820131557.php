@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Filament\Resources\Assets\Schemas;
+
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Schema;
+
+class AssetForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                TextInput::make('category_id')
+                    ->required()
+                    ->relationship('category','name')
+                    ->label('Category'),
+                TextInput::make('name')
+                    ->required(),
+                TextInput::make('code')
+                    ->required(),
+                TextInput::make('good_qty')
+                    ->required()
+                    ->label('Good'),
+                TextInput::make('damaged_qty')
+                    ->required()
+                    ->label('Damaged'),
+                TextInput::make('barrowed_qty')
+                    ->required()
+                    ->label('Barrowed'),
+                TextInput::make('lost_qty')
+                    ->required()
+                    ->label('lost'),
+                TextInput::make('total_qty')
+                    ->required()
+                Toggle::make('is_available')
+                    ->required(),
+            ]);
+    }
+}

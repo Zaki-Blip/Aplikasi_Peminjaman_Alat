@@ -1,0 +1,69 @@
+<?php
+
+namespace App\Filament\Resources\Assets\Schemas;
+
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Schema;
+
+class AssetForm
+{
+    protected static function recalculateStock(Get $get, Set $set):void{
+        $good
+        $damaged
+        $
+    }
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+        Group::make()
+                    ->schema([
+            Fieldset::make('Asset Detail')
+                    ->schema([
+                TextInput::make('code')
+                    ->required(),
+                Select::make('category_id')
+                    ->required()
+                    ->relationship('category', 'name')
+                    ->label('Category'),
+                TextInput::make('name')
+                    ->required()
+                    ->columnSpanFull(),
+
+                    ]),
+                    Toggle::make('is_available')
+                    ->required(),
+                ])->columnSpan(2),
+
+            Fieldset::make('Asset Condition')
+                    ->schema([
+                        TextInput::make('good_qty')
+                    ->required()
+                    ->label('Good')
+                    ->default(0),
+                TextInput::make('damaged_qty')
+                    ->required()
+                    ->label('Damaged')
+                    ->default(0),
+                TextInput::make('barrowed_qty')
+                    ->required()
+                    ->label('Barrowed')
+                    ->default(0),
+                TextInput::make('lost_qty')
+                    ->required()
+                    ->label('Lost')
+                    ->default(0),
+                TextInput::make('total_qty')
+                    ->required()
+                    ->label('Total')
+                    ->default(0),
+                    ])->columnSpan(1),
+
+
+            ])->columns(3);
+    }
+}
