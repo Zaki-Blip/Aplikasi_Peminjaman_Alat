@@ -65,7 +65,7 @@ class AssetsTable
 
                 IconColumn::make('is_available')
                     ->boolean()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true),,
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

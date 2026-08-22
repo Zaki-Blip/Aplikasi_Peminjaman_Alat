@@ -57,15 +57,14 @@ class AssetsTable
                 TextColumn::make('available_qty')
                     ->label('Available')
                     ->numeric()
-                    ->getStateUsing(fn($record)=>$record->good_qty - $record->borrowed_qty  )
-                    ->badge(),
+                    ->getStateUsing(fn($record)=>$record->good_qty - $record->borrowed_qty  ),
 
                 ]),
 
 
                 IconColumn::make('is_available')
                     ->boolean()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: true),,
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
