@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Filament\Resources\AssetReturns\Tables;
+
+use App\Models\Ticket;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+
+class AssetReturnsTable
+{
+    public static function configure(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Select::make('ticket_id')
+                    ->numeric()
+                    ->label('Ticket Number')
+                    ->relationship('ticket','ticket_number',fn($query) => $query->where('status','verifying'))
+                    ->afterStateUpdated(fn($state,$set) => $set('asset_id',Ticket::find($state)?->asset_id))
+                    ->live(),
+                Select::make('user_id')
+                    ->numeric()
+                    ->label('Verified By')
+                    ->relationship('user','name')
+                    ->default(Auth::id())
+                    ->hidden()
+                    ->dehydrated(),
+                Select::make('asset_id')
+                    ->numeric()
+                    ->label('asset_name')
+                    ->relationshi('asset','name')
+                    ->dehydrated()
+                    ->disabled(),
+                TextColumn::make('qty')
+                    ->numeric()
+                    ->required()
+                    ->default(fn(callable $get)=> Ticket::find($get))
+                    ->readOnly(),
+                Select::make('condition')
+                    ->options(['good' => 'Good','damaged' => 'Damaged', 'lost' => 'Lost'])
+                    ->default('good')
+                    ->required(),
+                DateTimePicker::make('returned_at')
+                    ->required()
+                    ->default(fn()=>Carbon::now())
+                    ->hidden(),
+                Textarea::make('noted')
+                    ->default(null)
+                    ->columnSpanFull(),
+            ])
+            ->filters([
+                //
+            ])
+            ->recordActions([
+                ViewAction::make(),
+                EditAction::make(),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+}
