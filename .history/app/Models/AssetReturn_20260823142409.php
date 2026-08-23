@@ -46,8 +46,5 @@ class AssetReturn extends Model
                 }
     });
     }
-    public function assetFine()
-    {
-        return $this->hasMany(AssetFine::class);
-    }
+    public function ass
 }

@@ -21,14 +21,12 @@ class AssetReturnForm
                 Select::make('ticket_id')
                     ->numeric()
                     ->label('Ticket Number')
-                    ->relationship('ticket','ticket_number',function ($query,$operation,$record){
+                    ->relationship('ticket','ticket_number',function ($query,$operation,$record)){
                         if($operation === 'create'){
-                            return $query->where('status','verifying');
+                            return $query->where('status','verifying')
                         }
                         return $query;
-                    })
-                    ->disabled(fn($operation)=> $operation === 'edit')
-                    ->dehydrated()
+                    },
                     ->afterStateUpdated(fn($state,$set) => $set('asset_id',Ticket::find($state)?->asset_id))
                     ->live(),
                 Select::make('user_id')

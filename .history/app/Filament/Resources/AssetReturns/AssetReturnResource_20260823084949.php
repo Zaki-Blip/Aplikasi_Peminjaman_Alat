@@ -6,7 +6,6 @@ use App\Filament\Resources\AssetReturns\Pages\CreateAssetReturn;
 use App\Filament\Resources\AssetReturns\Pages\EditAssetReturn;
 use App\Filament\Resources\AssetReturns\Pages\ListAssetReturns;
 use App\Filament\Resources\AssetReturns\Pages\ViewAssetReturn;
-use App\Filament\Resources\AssetReturns\RelationManagers\AssetFinesRelationManager;
 use App\Filament\Resources\AssetReturns\Schemas\AssetReturnForm;
 use App\Filament\Resources\AssetReturns\Schemas\AssetReturnInfolist;
 use App\Filament\Resources\AssetReturns\Tables\AssetReturnsTable;
@@ -43,7 +42,7 @@ class AssetReturnResource extends Resource
     public static function getRelations(): array
     {
         return [
-            AssetFinesRelationManager::class(),
+            //
         ];
     }
 

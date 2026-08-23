@@ -43,7 +43,7 @@ class AssetReturnResource extends Resource
     public static function getRelations(): array
     {
         return [
-            AssetFinesRelationManager::class(),
+            AssetFinesRelationManager::class()
         ];
     }
 

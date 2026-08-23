@@ -12,8 +12,4 @@ class AssetFine extends Model
         'type',
         'noted'
     ];
-    public function assetReturn()
-    {
-        return $this->belongsTo(AssetReturn::class);
-    }
 }

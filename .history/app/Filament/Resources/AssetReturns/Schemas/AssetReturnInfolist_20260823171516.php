@@ -40,23 +40,17 @@ class AssetReturnInfolist
                         TextEntry::make('condition')
                             ->label('Condition')
                             ->badge()
-                            ->color(fn(string $state): string => match($state){
-                                'good' => 'success',
-                                'damaged' => 'warning',
-                                'lost' => 'danger'
-
-                        })
-                            ->formatStateUsing(fn(string $state): string => match($state){
-                                'good' => 'Good Condition',
-                                'damaged' => 'Broken',
-                                'lost' => 'Missing  '
-
-                        }),
-
+                            ->color(fn($string)),
                     ])
                 ]),
-                        TextEntry::make('noted')
-                            ->label('Notes')
+
+
+
+
+                TextEntry::make('created_at')
+                    ->dateTime(),
+                TextEntry::make('updated_at')
+                    ->dateTime(),
             ]);
     }
 }

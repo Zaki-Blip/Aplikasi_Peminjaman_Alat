@@ -45,18 +45,24 @@ class AssetReturnInfolist
                                 'damaged' => 'warning',
                                 'lost' => 'danger'
 
-                        })
+                        }),
                             ->formatStateUsing(fn(string $state): string => match($state){
-                                'good' => 'Good Condition',
-                                'damaged' => 'Broken',
-                                'lost' => 'Missing  '
+                                'good' => 'success',
+                                'damaged' => 'warning',
+                                'lost' => 'danger'
 
                         }),
 
                     ])
                 ]),
-                        TextEntry::make('noted')
-                            ->label('Notes')
+
+
+
+
+                TextEntry::make('created_at')
+                    ->dateTime(),
+                TextEntry::make('updated_at')
+                    ->dateTime(),
             ]);
     }
 }

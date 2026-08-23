@@ -9,11 +9,6 @@ class AssetFine extends Model
     protected $fillable = [
         'asset_return_id',
         'amount',
-        'type',
-        'noted'
+        ''
     ];
-    public function assetReturn()
-    {
-        return $this->belongsTo(AssetReturn::class);
-    }
 }

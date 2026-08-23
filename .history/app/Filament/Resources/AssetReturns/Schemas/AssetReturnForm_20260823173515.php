@@ -28,7 +28,6 @@ class AssetReturnForm
                         return $query;
                     })
                     ->disabled(fn($operation)=> $operation === 'edit')
-                    ->dehydrated()
                     ->afterStateUpdated(fn($state,$set) => $set('asset_id',Ticket::find($state)?->asset_id))
                     ->live(),
                 Select::make('user_id')

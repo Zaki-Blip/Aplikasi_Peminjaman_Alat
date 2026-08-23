@@ -34,29 +34,17 @@ class AssetReturnInfolist
                     ->schema([
                         TextEntry::make('asset.name')
                             ->label('Asset Name'),
-                        TextEntry::make('qty')
-                            ->label('Qty')
-                            ->numeric(),
-                        TextEntry::make('condition')
-                            ->label('Condition')
-                            ->badge()
-                            ->color(fn(string $state): string => match($state){
-                                'good' => 'success',
-                                'damaged' => 'warning',
-                                'lost' => 'danger'
-
-                        })
-                            ->formatStateUsing(fn(string $state): string => match($state){
-                                'good' => 'Good Condition',
-                                'damaged' => 'Broken',
-                                'lost' => 'Missing  '
-
-                        }),
-
                     ])
                 ]),
-                        TextEntry::make('noted')
-                            ->label('Notes')
+
+                TextEntry::make('qty')
+                    ->numeric(),
+                TextEntry::make('condition'),
+
+                TextEntry::make('created_at')
+                    ->dateTime(),
+                TextEntry::make('updated_at')
+                    ->dateTime(),
             ]);
     }
 }

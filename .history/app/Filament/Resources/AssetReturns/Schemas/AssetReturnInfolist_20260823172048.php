@@ -55,8 +55,14 @@ class AssetReturnInfolist
 
                     ])
                 ]),
-                        TextEntry::make('noted')
-                            ->label('Notes')
+
+
+
+
+                TextEntry::make('created_at')
+                    ->dateTime(),
+                TextEntry::make('updated_at')
+                    ->dateTime(),
             ]);
     }
 }

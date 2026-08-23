@@ -56,7 +56,7 @@ class AssetReturnInfolist
                     ])
                 ]),
                         TextEntry::make('noted')
-                            ->label('Notes')
+                            ->
             ]);
     }
 }
