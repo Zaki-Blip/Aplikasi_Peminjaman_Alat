@@ -18,7 +18,7 @@ class StudentInfolist
                     ->schema([
                         ImageEntry::make('profile_picture')
                         ->hiddenlabel()
-                        ->imageHeight(150)
+                        ->imageHeight(200)
                         ->alignCenter()
                         ->disk('public')
 

@@ -67,16 +67,13 @@ class StudentForm
                     ->columnSpanFull(),
                 FileUpload::make('profile_picture')
                     ->image()
-                    ->imageEditor()
-                    ->imageResizeTargetWidth('300')
-                    ->imageResizeTargetHeight('300')
-                    ->imageResizeMode('cover')
+                    ->imageSize(150)
                     ->visibility('public')
                     ->label('Profile Picture')
                     ->directory('Students')
                     ->default(null)
-                    ->disk('public'),
-                            ]);
+                    ->disk('public')
+            ]);
     }
     }
 

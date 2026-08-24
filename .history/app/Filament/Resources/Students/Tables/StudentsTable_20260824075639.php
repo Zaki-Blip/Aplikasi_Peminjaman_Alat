@@ -33,7 +33,7 @@ class StudentsTable
                     Stack::make([
                     ImageColumn::make('profile_picture')
                     ->label('Profile Picture')
-                    ->imageSize(100)
+                    ->imageSize(50)
                     ->disk('public')
                     ->width(100),
                     TextColumn::make('user.name')
