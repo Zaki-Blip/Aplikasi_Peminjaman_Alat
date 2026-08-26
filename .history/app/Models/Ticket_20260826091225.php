@@ -3,21 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Activitylog\LogOptions;
-use Override;
-use Spatie\Activitylog\Traits\LogsActivity;
 
-
+use log
 class Ticket extends Model
 {
-    use LogsActivity;
-    #[Override]
-    public function getActivitylogOptions(): LogOptions
-    {
-        return LogOptions::defaults()
-        ->logAll()
-        ->logOnlyDirty();
-    }
     protected $fillable = [
         'user_id',
         'asset_id',

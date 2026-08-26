@@ -4,9 +4,9 @@ namespace App\Filament\Resources\Students;
 
 use App\Filament\Resources\Students\Pages\CreateStudent;
 use App\Filament\Resources\Students\Pages\EditStudent;
-use App\Filament\Resources\Students\Pages\ListStudents;
+//use App\Filament\Resources\Students\Pages\ListStudents;
 use App\Filament\Resources\Students\Pages\ViewStudent;
-//use App\Filament\Resources\Students\Pages\ViewStudents;
+use App\Filament\Resources\Students\Pages\ViewStudents;
 use App\Filament\Resources\Students\Schemas\StudentForm;
 use App\Filament\Resources\Students\Schemas\StudentInfolist;
 use App\Filament\Resources\Students\Tables\StudentsTable;
@@ -53,7 +53,7 @@ class StudentResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListStudents::route('/'),
+            'index' => ListStudent::route('/'),
             'create' => CreateStudent::route('/create'),
             'view' => ViewStudent::route('/{record}'),
             'edit' => EditStudent::route('/{record}/edit'),

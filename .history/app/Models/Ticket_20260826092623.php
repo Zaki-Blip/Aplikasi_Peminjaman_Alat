@@ -14,7 +14,7 @@ class Ticket extends Model
     #[Override]
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()
+        return LogOptions::default()
         ->logAll()
         ->logOnlyDirty();
     }

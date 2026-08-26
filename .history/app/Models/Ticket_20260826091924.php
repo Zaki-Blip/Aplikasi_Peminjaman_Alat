@@ -14,9 +14,7 @@ class Ticket extends Model
     #[Override]
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()
-        ->logAll()
-        ->logOnlyDirty();
+        return LogOption
     }
     protected $fillable = [
         'user_id',

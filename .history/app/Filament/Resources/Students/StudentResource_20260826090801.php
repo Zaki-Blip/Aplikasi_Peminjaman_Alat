@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Students;
 
 use App\Filament\Resources\Students\Pages\CreateStudent;
 use App\Filament\Resources\Students\Pages\EditStudent;
-use App\Filament\Resources\Students\Pages\ListStudents;
+//use App\Filament\Resources\Students\Pages\ListStudents;
 use App\Filament\Resources\Students\Pages\ViewStudent;
 //use App\Filament\Resources\Students\Pages\ViewStudents;
 use App\Filament\Resources\Students\Schemas\StudentForm;
