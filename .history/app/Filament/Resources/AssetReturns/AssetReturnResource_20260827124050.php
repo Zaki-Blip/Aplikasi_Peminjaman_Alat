@@ -14,15 +14,15 @@ use App\Models\AssetReturn;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-//use Filament\Support\Icons\Heroicon;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
 class AssetReturnResource extends Resource
 {
     protected static ?string $model = AssetReturn::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-arrow-uturn-left';
-    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-arrow-uturn-left';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-s-squares-2x2';
+
     protected static ?string $recordTitleAttribute = 'id';
 
     public static function form(Schema $schema): Schema

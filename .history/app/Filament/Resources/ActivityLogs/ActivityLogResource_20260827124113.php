@@ -18,10 +18,7 @@ class ActivityLogResource extends Resource
 {
     protected static ?string $model = Activity::class;
 
-
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clock';
-
-    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-clock';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-s-squares-2x2';
 
     protected static ?string $recordTitleAttribute = 'id';
 

@@ -10,7 +10,7 @@ use App\Filament\Resources\ActivityLogs\Tables\ActivityLogsTable;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-//use Filament\Support\Icons\Heroicon;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Spatie\Activitylog\Models\Activity;
 
@@ -18,10 +18,7 @@ class ActivityLogResource extends Resource
 {
     protected static ?string $model = Activity::class;
 
-
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clock';
-
-    protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-clock';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-s-squares-2x2';
 
     protected static ?string $recordTitleAttribute = 'id';
 

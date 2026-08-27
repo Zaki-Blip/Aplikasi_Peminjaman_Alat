@@ -21,6 +21,7 @@ class ActivityLogResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-clock';
 
+    // Icon aktif - versi Solid
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-clock';
 
     protected static ?string $recordTitleAttribute = 'id';
