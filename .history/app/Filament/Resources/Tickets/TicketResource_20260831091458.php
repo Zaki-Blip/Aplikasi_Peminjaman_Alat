@@ -10,37 +10,20 @@ use App\Filament\Resources\Tickets\Schemas\TicketForm;
 use App\Filament\Resources\Tickets\Schemas\TicketInfolist;
 use App\Filament\Resources\Tickets\Tables\TicketsTable;
 use App\Models\Ticket;
-use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
+//use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Facades\Auth;
-//use Illuminate\Support\Facades\Auth;
 
 class TicketResource extends Resource
 {
-    public static function getEloquentQuery(): Builder
-{
-    $query = parent::getEloquentQuery();
-
-    /** @var User|null $user */
-    $user = Auth::user();
-
-    if ($user?->hasAnyRole(['super_admin', 'staff'])) {
-        return $query;
-    }
-
-    return $query->where('user_id', $user?->id);
-}
     protected static ?string $model = Ticket::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-ticket';
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-ticket';
 
     protected static ?string $recordTitleAttribute = 'id';
-
 
     public static function form(Schema $schema): Schema
     {
@@ -73,5 +56,4 @@ class TicketResource extends Resource
             'edit' => EditTicket::route('/{record}/edit'),
         ];
     }
-
 }

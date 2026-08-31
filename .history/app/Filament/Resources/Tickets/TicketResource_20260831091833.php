@@ -41,7 +41,6 @@ class TicketResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'id';
 
-
     public static function form(Schema $schema): Schema
     {
         return TicketForm::configure($schema);

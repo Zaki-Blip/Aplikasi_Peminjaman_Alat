@@ -10,13 +10,12 @@ use App\Filament\Resources\Tickets\Schemas\TicketForm;
 use App\Filament\Resources\Tickets\Schemas\TicketInfolist;
 use App\Filament\Resources\Tickets\Tables\TicketsTable;
 use App\Models\Ticket;
-use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
+use Filament\Schemas\Schema;
+use Filament\Tables\Table;
 //use Illuminate\Support\Facades\Auth;
 
 class TicketResource extends Resource
@@ -40,7 +39,6 @@ class TicketResource extends Resource
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-ticket';
 
     protected static ?string $recordTitleAttribute = 'id';
-
 
     public static function form(Schema $schema): Schema
     {

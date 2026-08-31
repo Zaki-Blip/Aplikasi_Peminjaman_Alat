@@ -40,7 +40,7 @@ class TicketResource extends Resource
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-ticket';
 
     protected static ?string $recordTitleAttribute = 'id';
-
+    protected static ?string $slug = 'tickets';
 
     public static function form(Schema $schema): Schema
     {

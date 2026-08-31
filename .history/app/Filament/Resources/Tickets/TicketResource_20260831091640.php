@@ -10,14 +10,11 @@ use App\Filament\Resources\Tickets\Schemas\TicketForm;
 use App\Filament\Resources\Tickets\Schemas\TicketInfolist;
 use App\Filament\Resources\Tickets\Tables\TicketsTable;
 use App\Models\Ticket;
-use App\Models\User;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
-//use Illuminate\Support\Facades\Auth;
 
 class TicketResource extends Resource
 {
@@ -25,14 +22,13 @@ class TicketResource extends Resource
 {
     $query = parent::getEloquentQuery();
 
-    /** @var User|null $user */
-    $user = Auth::user();
-
-    if ($user?->hasAnyRole(['super_admin', 'staff'])) {
+    // Super Admin & Staff lihat semua tiket
+    if (Auth::user()?->hasAnyRole(['super_admin', 'staff'])) {
         return $query;
     }
 
-    return $query->where('user_id', $user?->id);
+    // Student cuma lihat tiket yang dia buat sendiri
+    return $query->where('user_id', Auth::id());
 }
     protected static ?string $model = Ticket::class;
 
@@ -40,7 +36,6 @@ class TicketResource extends Resource
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-ticket';
 
     protected static ?string $recordTitleAttribute = 'id';
-
 
     public static function form(Schema $schema): Schema
     {

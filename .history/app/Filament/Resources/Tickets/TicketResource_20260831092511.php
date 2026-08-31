@@ -40,7 +40,7 @@ class TicketResource extends Resource
     protected static string|BackedEnum|null $activeNavigationIcon = 'heroicon-s-ticket';
 
     protected static ?string $recordTitleAttribute = 'id';
-
+    protected static ?string $slug = 'tickets'; // ada gak baris ini, dan isinya apa?
 
     public static function form(Schema $schema): Schema
     {
